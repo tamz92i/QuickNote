@@ -12,40 +12,50 @@ QuickNotes est une application moderne et minimaliste conçue pour gérer vos no
 
 ## 📦 Installation
 
+### Cloner le dépôt
+
+Clonez le dépôt sur votre machine :
+
+```bash
+git clone https://github.com/tamz92i/quicknote.git
+```
+
+Cela clonera à la fois le frontend et le backend dans un seul dépôt.
+
 ### Backend
 
-1. Clonez le dépôt :
+1. Allez dans le répertoire `backend` :
     ```bash
-    https://github.com/tamz92i/quicknote.git
+    git clone https://github.com/ton-utilisateur/quicknotes.git
     ```
 2. Allez dans le répertoire `backend` :
     ```bash
     cd backend
     ```
-3. Installez les dépendances :
+2. Installez les dépendances :
     ```bash
     npm install
     ```
-4. Créez un fichier `.env` et ajoutez votre URI MongoDB.
+3. Créez un fichier `.env` avec votre URI MongoDB.
 
 ### Frontend
 
-1. Clonez le dépôt :
+1. Allez dans le répertoire `frontend` :
     ```bash
-    https://github.com/tamz92i/quicknote.git
+    git clone https://github.com/ton-utilisateur/quicknotes.git
     ```
 2. Allez dans le répertoire `frontend` :
     ```bash
     cd frontend
     ```
-3. Installez les dépendances :
+2. Installez les dépendances :
     ```bash
     npm install
     ```
 
 ## ⚙️ Exécution Locale avec Docker
 
-Pour exécuter à la fois le backend et le frontend localement avec Docker, utilisez la commande suivante :
+Pour exécuter à la fois le backend et le frontend localement avec Docker, utilisez la commande suivante dans le répertoire racine du projet :
 
 ```bash
 docker-compose up --build
