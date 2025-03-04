@@ -26,11 +26,7 @@ Cela clonera à la fois le frontend et le backend dans un seul dépôt.
 
 1. Allez dans le répertoire `backend` :
     ```bash
-    git clone https://github.com/ton-utilisateur/quicknotes.git
-    ```
-2. Allez dans le répertoire `backend` :
-    ```bash
-    cd backend
+    cd quicknote/backend
     ```
 2. Installez les dépendances :
     ```bash
@@ -42,11 +38,7 @@ Cela clonera à la fois le frontend et le backend dans un seul dépôt.
 
 1. Allez dans le répertoire `frontend` :
     ```bash
-    git clone https://github.com/ton-utilisateur/quicknotes.git
-    ```
-2. Allez dans le répertoire `frontend` :
-    ```bash
-    cd frontend
+    cd ../frontend
     ```
 2. Installez les dépendances :
     ```bash
