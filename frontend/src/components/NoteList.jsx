@@ -1,10 +1,10 @@
 import React from 'react';
 
-const NoteList = ({ notes, onDelete, onEdit }) => {
+const ListeNotes = ({ notes, onDelete, onEdit }) => {
   return (
     <div className="w-full flex gap-5 max-w-6xl mx-auto mt-8 max-h-[20rem] overflow-auto">
       {notes.length === 0 ? (
-        <p className="text-center text-gray-500">No notes available</p>
+        <p className="text-center text-gray-500">Aucune note disponible</p>
       ) : (
         <>
           {notes.map((note) => (
@@ -16,13 +16,13 @@ const NoteList = ({ notes, onDelete, onEdit }) => {
                   onClick={() => onEdit(note)}
                   className="py-2 px-4 bg-yellow-500 text-white rounded-md hover:bg-yellow-600"
                 >
-                  Edit
+                  Modifier
                 </button>
                 <button
                   onClick={() => onDelete(note._id)}
                   className="py-2 px-4 bg-red-500 text-white rounded-md hover:bg-red-600"
                 >
-                  Delete
+                  Supprimer
                 </button>
               </div>
             </div>
@@ -33,4 +33,4 @@ const NoteList = ({ notes, onDelete, onEdit }) => {
   );
 };
 
-export default NoteList;
+export default ListeNotes;

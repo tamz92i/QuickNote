@@ -1,20 +1,20 @@
 const express = require('express');
 const mongoose = require('mongoose');
-const noteRoutes = require('./routes/noteRoutes');
+const routesNotes = require('./routes/noteRoutes');
 require('dotenv').config();
 
 const app = express();
 app.use(express.json());
 
-// Connect to MongoDB
+// Connexion à MongoDB
 mongoose.connect(process.env.MONGODB_URI, { useNewUrlParser: true, useUnifiedTopology: true })
-  .then(() => console.log("Connected to MongoDB"))
-  .catch((err) => console.error("Failed to connect to MongoDB:", err));
+  .then(() => console.log("Connecté à MongoDB"))
+  .catch((err) => console.error("Échec de la connexion à MongoDB :", err));
 
-// Use note routes
-app.use('/api/notes', noteRoutes);
+// Utiliser les routes des notes
+app.use('/api/notes', routesNotes);
 
 const port = process.env.PORT || 5000;
 app.listen(port, () => {
-  console.log(`Server running on port ${port}`);
+  console.log(`Serveur en cours d'exécution sur le port ${port}`);
 });

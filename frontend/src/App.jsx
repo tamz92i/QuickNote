@@ -1,58 +1,57 @@
 import React, { useState, useEffect } from 'react';
 import axios from 'axios';
-import NoteList from './components/NoteList';
-import NoteForm from './components/NoteForm';
+import ListeNotes from './components/ListeNotes';
+import FormulaireNote from './components/FormulaireNote';
 
 const App = () => {
   const [notes, setNotes] = useState([]);
-  const [selectedNote, setSelectedNote] = useState(null);
+  const [noteSelectionnee, setNoteSelectionnee] = useState(null);
 
-  // Fetch all notes
+  // Récupérer toutes les notes
   useEffect(() => {
-    fetchNotes();
+    recupererNotes();
   }, []);
 
-  // 
-  const fetchNotes = async () => {
+  const recupererNotes = async () => {
     try {
       const { data } = await axios.get('/api/notes');
       setNotes(data);
     } catch (error) {
-      console.error('Error fetching notes:', error);
+      console.error('Erreur lors de la récupération des notes :', error);
     }
   };
 
-  // Add or Update a note
-  const handleSaveNote = async (note) => {
+  // Ajouter ou mettre à jour une note
+  const handleEnregistrerNote = async (note) => {
     try {
-      if (selectedNote) {
-        // Update existing note
-        const { data } = await axios.put(`/api/notes/${selectedNote._id}`, note);
+      if (noteSelectionnee) {
+        // Mettre à jour une note existante
+        const { data } = await axios.put(`/api/notes/${noteSelectionnee._id}`, note);
         setNotes(notes.map((n) => (n._id === data._id ? data : n)));
       } else {
-        // Add new note
+        // Ajouter une nouvelle note
         const { data } = await axios.post('/api/notes', note);
         setNotes([...notes, data]);
       }
-      setSelectedNote(null);
+      setNoteSelectionnee(null);
     } catch (error) {
-      console.error('Error saving note:', error);
+      console.error('Erreur lors de l\'enregistrement de la note :', error);
     }
   };
 
-  // Delete a note
-  const handleDeleteNote = async (id) => {
+  // Supprimer une note
+  const handleSupprimerNote = async (id) => {
     try {
       await axios.delete(`/api/notes/${id}`);
       setNotes(notes.filter((note) => note._id !== id));
     } catch (error) {
-      console.error('Error deleting note:', error);
+      console.error('Erreur lors de la suppression de la note :', error);
     }
   };
 
-  // Edit a note
-  const handleEditNote = (note) => {
-    setSelectedNote(note);
+  // Modifier une note
+  const handleModifierNote = (note) => {
+    setNoteSelectionnee(note);
   };
 
   return (
@@ -60,9 +59,9 @@ const App = () => {
       <div className="container mx-auto">
         <h1 className="text-3xl font-semibold text-center text-gray-800 my-2">QuickNotes</h1>
 
-        <NoteForm note={selectedNote} onSave={handleSaveNote} />
+        <FormulaireNote note={noteSelectionnee} onSave={handleEnregistrerNote} />
 
-        <NoteList notes={notes} onDelete={handleDeleteNote} onEdit={handleEditNote} />
+        <ListeNotes notes={notes} onDelete={handleSupprimerNote} onEdit={handleModifierNote} />
       </div>
     </div>
   );

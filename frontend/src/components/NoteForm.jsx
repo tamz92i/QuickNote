@@ -1,31 +1,31 @@
 import React, { useState, useEffect } from 'react';
 
-const NoteForm = ({ note, onSave }) => {
-  const [title, setTitle] = useState('');
+const FormulaireNote = ({ note, onSave }) => {
+  const [titre, setTitre] = useState('');
   const [description, setDescription] = useState('');
 
   useEffect(() => {
     if (note) {
-      setTitle(note.title);
+      setTitre(note.title);
       setDescription(note.description);
     }
   }, [note]);
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    onSave({ title, description });
-    setTitle('');
+    onSave({ title: titre, description });
+    setTitre('');
     setDescription('');
   };
 
   return (
     <form onSubmit={handleSubmit} className="w-full max-w-lg mx-auto p-4 bg-white rounded-lg shadow-lg">
       <div className="mb-4">
-        <label className="block text-gray-700 font-semibold mb-2">Title</label>
+        <label className="block text-gray-700 font-semibold mb-2">Titre</label>
         <input
           type="text"
-          value={title}
-          onChange={(e) => setTitle(e.target.value)}
+          value={titre}
+          onChange={(e) => setTitre(e.target.value)}
           className="w-full px-4 py-2 border border-gray-300 rounded-md"
           required
         />
@@ -43,10 +43,10 @@ const NoteForm = ({ note, onSave }) => {
         type="submit"
         className="w-full py-2 px-4 bg-blue-500 text-white font-semibold rounded-md hover:bg-blue-700"
       >
-        {note ? 'Update Note' : 'Add Note'}
+        {note ? 'Mettre à jour la note' : 'Ajouter une note'}
       </button>
     </form>
   );
 };
 
-export default NoteForm;
+export default FormulaireNote;
