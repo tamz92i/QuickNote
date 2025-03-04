@@ -32,7 +32,7 @@ QuickNotes est une application moderne et minimaliste conçue pour gérer vos no
 
 1. Clonez le dépôt :
     ```bash
-    git clone https://github.com/ton-utilisateur/quicknotes.git
+    https://github.com/tamz92i/quicknote.git
     ```
 2. Allez dans le répertoire `frontend` :
     ```bash
