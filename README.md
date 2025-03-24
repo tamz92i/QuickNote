@@ -17,7 +17,7 @@ QuickNotes est une application moderne et minimaliste conçue pour gérer vos no
 Clonez le dépôt sur votre machine :
 
 ```bash
-git clone https://github.com/tamz92i/quicknote.git
+git clone https://github.com/tamz92i/QuickNote.git
 ```
 
 Cela clonera à la fois le frontend et le backend dans un seul dépôt.
